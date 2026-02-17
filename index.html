@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategic Proposal - Commercial</title>
+    <title>Strategic Proposal - Commercial Master</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -41,7 +41,7 @@
         <div class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex justify-between items-center">
             <div>
                 <h1 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Strategic Proposal</h1>
-                <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">Enterprise Process Optimization</p>
+                <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">Commercial & Strategic Master</p>
             </div>
             <div class="flex items-center gap-4">
                 <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Toggle Theme">
@@ -78,7 +78,85 @@
             </div>
         </section>
 
-        <!-- Interactive Agenda -->
+        <!-- NEW: Strategic Foundation -->
+        <section id="foundation" class="animate-fade-in">
+            <div class="mb-4 sm:mb-6">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Strategic Foundation</h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Core drivers, objectives, and high-level milestones.</p>
+            </div>
+            
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="foundation-grid">
+                <!-- Foundation Cards injected via JS -->
+            </div>
+        </section>
+
+        <!-- NEW: Comparative Analysis -->
+        <section id="comparison" class="animate-fade-in">
+            <div class="mb-4 sm:mb-6">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Comparative Analysis</h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Evaluating technical viability and scalability.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Text Comparisons -->
+                <div class="lg:col-span-2 grid md:grid-cols-2 gap-4">
+                    <!-- Option 1: Monday.com -->
+                    <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-xl shadow dark:shadow-none dark:border dark:border-slate-800 border-t-4 border-red-400">
+                        <div class="mb-3"><span class="text-[10px] font-bold uppercase text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded">Market Std</span></div>
+                        <h3 class="font-bold text-base sm:text-lg mb-2 dark:text-white">Monday.com</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Enterprise SaaS.</p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Adoption:</span> <span class="font-semibold text-orange-500">Medium</span></li>
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Complexity:</span> <span class="font-semibold text-red-500">High</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Option 2: Bitrix24 -->
+                    <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-xl shadow dark:shadow-none dark:border dark:border-slate-800 border-t-4 border-orange-400">
+                        <div class="mb-3"><span class="text-[10px] font-bold uppercase text-orange-500 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">Heavy ERP</span></div>
+                        <h3 class="font-bold text-base sm:text-lg mb-2 dark:text-white">Bitrix24</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Comprehensive suite.</p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Adoption:</span> <span class="font-semibold text-red-500">Low</span></li>
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Complexity:</span> <span class="font-semibold text-red-600">V. High</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Option 3: Custom Dev -->
+                    <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-xl shadow dark:shadow-none dark:border dark:border-slate-800 border-t-4 border-slate-400">
+                        <div class="mb-3"><span class="text-[10px] font-bold uppercase text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Custom App</span></div>
+                        <h3 class="font-bold text-base sm:text-lg mb-2 dark:text-white">Custom Dev</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Bespoke web app.</p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Adoption:</span> <span class="font-semibold text-green-500">High</span></li>
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Maint:</span> <span class="font-semibold text-red-500">Heavy</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Option 4: Proposed -->
+                    <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-xl shadow-xl dark:shadow-none dark:border dark:border-emerald-500/50 border-t-4 border-emerald-500 ring-2 ring-emerald-100 dark:ring-emerald-900/30">
+                        <div class="mb-3"><span class="text-[10px] font-bold uppercase text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 px-2 py-1 rounded">Recommended</span></div>
+                        <h3 class="font-bold text-base sm:text-lg mb-2 text-emerald-800 dark:text-emerald-400">Google + Gemini</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Existing Infra + AI.</p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Adoption:</span> <span class="font-semibold text-emerald-600 dark:text-emerald-400">Immediate</span></li>
+                            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Scale:</span> <span class="font-semibold text-emerald-600 dark:text-emerald-400">Unlimited</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Web Chart -->
+                <div class="lg:col-span-1 bg-white dark:bg-slate-900 p-4 rounded-xl shadow-lg dark:shadow-none dark:border dark:border-slate-800 flex flex-col justify-center">
+                    <h3 class="font-bold text-center text-sm sm:text-base text-slate-700 dark:text-slate-200 mb-4">Strategic Fit</h3>
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    <p class="text-[10px] text-center text-slate-400 mt-4 italic">5 key dimensions comparison.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Agenda (High Contrast) -->
         <section id="agenda" class="animate-fade-in">
             <div class="mb-4 sm:mb-6">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Workshop Agenda</h2>
@@ -262,7 +340,7 @@
         const option2Monthly = 325000;
         
         const state = { currentOption: 1 };
-        let costChart;
+        let costChart, radarChart;
 
         // --- THEME LOGIC ---
         function toggleTheme() {
@@ -270,26 +348,55 @@
             const isDark = document.documentElement.classList.contains('dark');
             const icon = document.getElementById('theme-icon');
             icon.textContent = isDark ? '☀️' : '🌙';
-            updateCostChartTheme(isDark);
+            updateChartsTheme(isDark);
             
             // Re-render components that might need logic updates based on theme
-            selectOption(state.currentOption); // Updates button styles
+            selectOption(state.currentOption); 
         }
 
-        function updateCostChartTheme(isDark) {
-            if (!costChart) return;
-            
+        function updateChartsTheme(isDark) {
             const textColor = isDark ? '#94a3b8' : '#64748b';
             const gridColor = isDark ? '#334155' : '#e2e8f0';
+            const angleLineColor = isDark ? '#475569' : '#f1f5f9';
 
-            costChart.options.scales.x.ticks.color = textColor;
-            costChart.options.scales.x.grid.color = gridColor;
-            costChart.options.scales.y.ticks.color = textColor;
-            costChart.options.scales.y.grid.color = gridColor;
-            costChart.options.scales.y.title.color = textColor;
-            
-            costChart.update();
+            // Update Cost Chart
+            if (costChart) {
+                costChart.options.scales.x.ticks.color = textColor;
+                costChart.options.scales.x.grid.color = gridColor;
+                costChart.options.scales.y.ticks.color = textColor;
+                costChart.options.scales.y.grid.color = gridColor;
+                costChart.options.scales.y.title.color = textColor;
+                costChart.update();
+            }
+
+            // Update Radar Chart
+            if (radarChart) {
+                radarChart.options.scales.r.pointLabels.color = textColor;
+                radarChart.options.scales.r.grid.color = gridColor;
+                radarChart.options.scales.r.angleLines.color = angleLineColor;
+                radarChart.update();
+            }
         }
+
+        // --- FOUNDATION DATA ---
+        const foundationData = [
+            {
+                title: "Vision", color: "indigo", borderColor: "border-indigo-500", textColor: "text-indigo-500", darkColor: "text-indigo-400",
+                items: ["Become the #1 Telemarketing Agency in SL", "100% Digital Workflow"]
+            },
+            {
+                title: "Mission", color: "cyan", borderColor: "border-cyan-500", textColor: "text-cyan-500", darkColor: "text-cyan-400",
+                items: ["Empower staff with AI tools", "Zero operational friction"]
+            },
+            {
+                title: "Objectives", color: "amber", borderColor: "border-amber-500", textColor: "text-amber-500", darkColor: "text-amber-400",
+                items: ["Reduce Admin time by 40%", "Increase conversion by 15%"]
+            },
+            {
+                title: "Milestones", color: "rose", borderColor: "border-rose-500", textColor: "text-rose-500", darkColor: "text-rose-400",
+                items: ["Phase 1 Sign-off (Feb 20)", "Pilot Launch (Mar 1)"]
+            }
+        ];
 
         // --- ROADMAP DATA ---
         const roadmapPhases = [
@@ -330,65 +437,44 @@
         };
 
         // --- CHART INITIALIZATION ---
-        function initChart() {
-            const ctx = document.getElementById('costChart').getContext('2d');
+        function initCharts() {
+            // Cost Chart
+            const ctxCost = document.getElementById('costChart').getContext('2d');
             const labels = Array.from({length: 18}, (_, i) => `M${i + 1}`);
             const marketData = labels.map((_, i) => marketMonthly * (i + 1));
             const option1Data = labels.map((_, i) => option1Monthly * (i + 1));
 
-            costChart = new Chart(ctx, {
+            costChart = new Chart(ctxCost, {
                 type: 'line',
                 data: {
                     labels: labels,
                     datasets: [
-                        {
-                            label: 'Market Standard',
-                            data: marketData,
-                            borderColor: '#ef4444',
-                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                            borderWidth: 2,
-                            tension: 0.4,
-                            fill: true,
-                            pointRadius: 2
-                        },
-                        {
-                            label: 'Proposed',
-                            data: option1Data,
-                            borderColor: '#10b981',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                            borderWidth: 3,
-                            tension: 0.4,
-                            fill: true,
-                            pointRadius: 3
-                        }
+                        { label: 'Market Standard', data: marketData, borderColor: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', borderWidth: 2, tension: 0.4, fill: true, pointRadius: 2 },
+                        { label: 'Proposed', data: option1Data, borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', borderWidth: 3, tension: 0.4, fill: true, pointRadius: 3 }
                     ]
                 },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) { label += ': '; }
-                                    if (context.parsed.y !== null) { label += (context.parsed.y / 1000000).toFixed(1) + 'M'; }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: { callback: function(value) { return (value / 1000000) + 'M'; }, font: { size: 10 } },
-                            title: { display: true, text: 'Spend (LKR)' }
-                        },
-                        x: {
-                            ticks: { font: { size: 10 }, maxTicksLimit: 9 }
-                        }
-                    }
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } } },
+                    scales: { y: { beginAtZero: true, ticks: { callback: v => (v / 1000000) + 'M', font: { size: 10 } }, title: { display: true, text: 'Spend (LKR)' } }, x: { ticks: { font: { size: 10 }, maxTicksLimit: 9 } } }
+                }
+            });
+
+            // Radar Chart
+            const ctxRadar = document.getElementById('radarChart').getContext('2d');
+            radarChart = new Chart(ctxRadar, {
+                type: 'radar',
+                data: {
+                    labels: ['Speed', 'Cost', 'Scale', 'Maint.', 'AI'],
+                    datasets: [
+                        { label: 'Proposed', data: [10, 9, 10, 9, 9], backgroundColor: 'rgba(16, 185, 129, 0.2)', borderColor: '#10b981', pointBackgroundColor: '#10b981', borderWidth: 2 },
+                        { label: 'Monday.com', data: [6, 3, 8, 7, 6], backgroundColor: 'rgba(239, 68, 68, 0.1)', borderColor: '#ef4444', pointBackgroundColor: '#ef4444', borderWidth: 1 }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { r: { angleLines: { display: true }, pointLabels: { font: { size: 10, family: 'Inter' } }, suggestedMin: 0, suggestedMax: 10, ticks: { display: false, stepSize: 2 } } },
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
                 }
             });
 
@@ -396,7 +482,7 @@
             if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.documentElement.classList.add('dark');
                 document.getElementById('theme-icon').textContent = '☀️';
-                setTimeout(() => updateCostChartTheme(true), 100);
+                setTimeout(() => updateChartsTheme(true), 100);
             }
         }
 
@@ -413,7 +499,6 @@
                 
                 btnMorning.className = "flex-1 py-4 text-center text-xs sm:text-sm font-bold text-white bg-slate-900 dark:bg-slate-700 border-b-2 border-transparent transition-colors";
                 btnAfternoon.className = "flex-1 py-4 text-center text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 bg-slate-200 dark:bg-slate-950 hover:bg-slate-300 dark:hover:bg-slate-800 transition-colors";
-
             } else {
                 contentMorning.classList.add('hidden');
                 contentAfternoon.classList.remove('hidden');
@@ -429,7 +514,6 @@
             const btn1 = document.getElementById('btn-opt1');
             const btn2 = document.getElementById('btn-opt2');
             
-            // Logic to handle button active states in both light and dark mode
             const activeClass = "bg-white dark:bg-slate-600 dark:text-white shadow text-slate-800";
             const inactiveClass = "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white";
 
@@ -463,6 +547,34 @@
             costChart.update();
         }
 
+        function renderFoundation() {
+            const container = document.getElementById('foundation-grid');
+            container.innerHTML = '';
+            
+            foundationData.forEach((card, index) => {
+                const el = document.createElement('div');
+                el.className = `bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-xl shadow dark:shadow-none dark:border dark:border-slate-800 border-t-4 ${card.borderColor} flex flex-col h-full`;
+                let listItems = card.items.map(item => `<li class="flex items-start"><span class="mr-2 text-slate-400">•</span>${item}</li>`).join('');
+
+                el.innerHTML = `
+                    <h3 class="font-bold text-base sm:text-lg mb-2 dark:text-slate-100 ${card.textColor} dark:${card.darkColor}">${card.title}</h3>
+                    <ul class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 flex-grow mb-4">${listItems}</ul>
+                    <div class="flex gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <input type="text" id="found-input-${index}" placeholder="Add..." class="w-full text-sm p-2 border dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded focus:outline-none focus:border-${card.color}-500" onkeypress="handleFoundationEnter(event, ${index})">
+                        <button onclick="addFoundationItem(${index})" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded px-3 py-1 text-lg font-bold transition-colors">+</button>
+                    </div>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        function handleFoundationEnter(e, index) { if (e.key === 'Enter') addFoundationItem(index); }
+        function addFoundationItem(index) {
+            const input = document.getElementById(`found-input-${index}`);
+            const val = input.value.trim();
+            if (val) { foundationData[index].items.push(val); renderFoundation(); }
+        }
+
         function renderRoadmap() {
             const container = document.getElementById('roadmap-grid');
             container.innerHTML = '';
@@ -470,7 +582,6 @@
             roadmapPhases.forEach((phase, index) => {
                 const card = document.createElement('div');
                 card.className = `bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-xl shadow dark:shadow-none dark:border dark:border-slate-800 border-t-4 ${phase.borderColor} flex flex-col h-full`;
-                
                 let listItems = phase.items.map(item => `<li class="flex items-start"><span class="mr-2 text-slate-400">•</span>${item}</li>`).join('');
 
                 card.innerHTML = `
@@ -479,9 +590,7 @@
                         <div class="h-2 w-2 rounded-full bg-${phase.color}-400"></div>
                     </div>
                     <h3 class="font-bold text-base sm:text-lg mb-4 dark:text-slate-100">${phase.title}</h3>
-                    <ul class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 flex-grow mb-4" id="list-${index}">
-                        ${listItems}
-                    </ul>
+                    <ul class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 flex-grow mb-4">${listItems}</ul>
                     <div class="flex gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
                         <input type="text" id="input-${index}" placeholder="Add Item..." class="w-full text-sm p-2 border dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded focus:outline-none focus:border-blue-500" onkeypress="handleEnter(event, ${index})">
                         <button onclick="addItem(${index})" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded px-3 py-1 text-lg font-bold transition-colors">+</button>
@@ -492,20 +601,17 @@
         }
 
         function handleEnter(e, index) { if (e.key === 'Enter') addItem(index); }
-
         function addItem(index) {
             const input = document.getElementById(`input-${index}`);
             const val = input.value.trim();
-            if (val) {
-                roadmapPhases[index].items.push(val);
-                renderRoadmap();
-            }
+            if (val) { roadmapPhases[index].items.push(val); renderRoadmap(); }
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            initChart();
+            initCharts();
             switchAgenda('morning');
             selectOption(1);
+            renderFoundation();
             renderRoadmap();
         });
 
