@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Proposal - Commercial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 850: '#1e293b', 950: '#020617' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .chart-container { position: relative; width: 100%; height: 250px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+
+        .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Navigation / Hero -->
+    <header class="bg-white dark:bg-slate-900 shadow-sm sticky top-0 z-50 border-b dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Strategic Proposal</h1>
+                <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">Enterprise Process Optimization</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Toggle Theme">
+                    <span id="theme-icon" class="text-xl">🌙</span>
+                </button>
+                <div class="text-right hidden sm:block">
+                    <p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400">Wed, Feb 18, 2026</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">10:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-6 sm:py-8 space-y-8 sm:space-y-12">
+
+        <!-- Executive Summary -->
+        <section id="summary" class="animate-fade-in">
+            <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg dark:shadow-none dark:border dark:border-slate-800 p-5 sm:p-6 border-l-4 border-blue-600">
+                <h2 class="text-xl sm:text-2xl font-bold mb-4 text-slate-800 dark:text-white">Executive Summary</h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                    Objective: Deploy a centralized management ecosystem for <strong>100 staff members</strong> ensuring efficiency without the prohibitive costs of enterprise SaaS.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mt-6">
+                    <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <h3 class="font-semibold text-red-600 dark:text-red-400 mb-2 flex items-center"><span class="mr-2">🚫</span> The Problem</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Enterprise subscriptions cost approx. <strong>LKR 12 Million/Year</strong>. High complexity, low adoption.</p>
+                    </div>
+                    <div class="bg-emerald-50 dark:bg-slate-800 p-4 rounded-xl border border-emerald-200 dark:border-emerald-900/50">
+                        <h3 class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2 flex items-center"><span class="mr-2">✅</span> The Solution</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Custom <strong>Google Workspace Ecosystem</strong> + <strong>Gemini AI</strong>. Replicates CRM functionality at a fraction of the cost.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Agenda -->
+        <section id="agenda" class="animate-fade-in">
+            <div class="mb-4 sm:mb-6">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Workshop Agenda</h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Wednesday, Feb 18 • Full Day Session</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg dark:shadow-none dark:border dark:border-slate-800 overflow-hidden">
+                <!-- Tabs -->
+                <div class="flex">
+                    <button id="tab-morning" class="flex-1 py-4 text-center text-xs sm:text-sm font-bold text-white bg-slate-900 dark:bg-slate-800 border-b-2 border-transparent transition-colors" onclick="switchAgenda('morning')">
+                        ☀️ Morning<span class="hidden sm:inline"> Session</span>
+                    </button>
+                    <button id="tab-afternoon" class="flex-1 py-4 text-center text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 bg-slate-200 dark:bg-slate-950 hover:bg-slate-300 dark:hover:bg-slate-800 transition-colors" onclick="switchAgenda('afternoon')">
+                        🌤️ Afternoon<span class="hidden sm:inline"> Session</span>
+                    </button>
+                </div>
+
+                <!-- Content Area -->
+                <div class="p-4 sm:p-6 min-h-[300px]">
+                    <!-- Morning Content -->
+                    <div id="content-morning" class="space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 font-bold px-3 py-1 rounded text-xs whitespace-nowrap self-start">10:00 AM</div>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">Current State Analysis</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">Mapping workflows.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 font-bold px-3 py-1 rounded text-xs whitespace-nowrap self-start">11:00 AM</div>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">Solution Blueprint</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">Demo: The "Google Hack" & AI.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 font-bold px-3 py-1 rounded text-xs whitespace-nowrap self-start">12:30 PM</div>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">Current State Optimization</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">Deep dive into bottlenecks.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start border-t dark:border-slate-800 pt-4">
+                            <div class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 font-bold px-3 py-1 rounded text-xs whitespace-nowrap self-start">1:00 PM</div>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">Lunch Break 🍱</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Afternoon Content -->
+                    <div id="content-afternoon" class="space-y-6 hidden">
+                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 font-bold px-3 py-1 rounded text-xs whitespace-nowrap self-start">1:30 PM</div>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">Implementation Roadmap</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">Phase 1, 2, 3 Execution Plan.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 font-bold px-3 py-1 rounded text-xs whitespace-nowrap self-start">3:00 PM</div>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">The Commercial Agreement</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">Cost Savings Analysis. Retainer Options. Sign-off.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+                            <div class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 font-bold px-3 py-1 rounded text-xs whitespace-nowrap self-start">4:30 PM</div>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">Next Steps</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">Immediate action items for Thursday.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Roadmap Prototype -->
+        <section id="roadmap" class="animate-fade-in">
+            <div class="mb-4 sm:mb-6">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Execution Roadmap Prototype</h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Live planning board.</p>
+            </div>
+            
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="roadmap-grid">
+                <!-- Cards injected via JS -->
+            </div>
+        </section>
+
+        <!-- Commercials -->
+        <section id="commercials" class="animate-fade-in">
+            <div class="mb-8 text-center px-2">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Commercial Proposal</h2>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mt-2">
+                    Standard Market Cost: ~12M LKR/Year. 
+                    <span class="text-emerald-600 dark:text-emerald-400 font-bold block mt-1">Our proposal saves 60% of this cost.</span>
+                </p>
+            </div>
+
+            <!-- Option Toggle -->
+            <div class="flex justify-center mb-8">
+                <div class="bg-slate-200 dark:bg-slate-800 p-1 rounded-lg inline-flex flex-col sm:flex-row w-full sm:w-auto">
+                    <button id="btn-opt1" class="px-6 py-2 rounded-md text-xs sm:text-sm font-bold bg-white dark:bg-slate-600 dark:text-white shadow text-slate-800 transition-all mb-1 sm:mb-0" onclick="selectOption(1)">
+                        Option 1: Cash Retainer
+                    </button>
+                    <button id="btn-opt2" class="px-6 py-2 rounded-md text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-all" onclick="selectOption(2)">
+                        Option 2: Hybrid (Vehicle)
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6 items-start">
+                
+                <!-- Active Option Card -->
+                <div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-2xl shadow-xl dark:shadow-none dark:border dark:border-slate-800 overflow-hidden transform transition-all duration-300">
+                    <div class="bg-slate-900 dark:bg-slate-800 text-white p-5 sm:p-6">
+                        <h3 id="card-title" class="text-lg sm:text-xl font-bold">Standard Cash Retainer</h3>
+                        <p id="card-subtitle" class="text-slate-400 text-xs sm:text-sm mt-1">Maximum Cash Flow Visibility</p>
+                    </div>
+                    <div class="p-5 sm:p-6">
+                        <div class="mb-6">
+                            <span id="card-price" class="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white">400k</span>
+                            <span class="text-slate-500 dark:text-slate-400 text-sm">LKR / Month</span>
+                        </div>
+                        <ul id="card-features" class="space-y-3 mb-8">
+                            <!-- Features injected via JS -->
+                        </ul>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+                            <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mb-1">Total Contract Value</p>
+                            <p id="card-total" class="font-bold text-base sm:text-lg text-slate-800 dark:text-slate-200">LKR 7,200,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl shadow-lg dark:shadow-none dark:border dark:border-slate-800 p-4 sm:p-6 flex flex-col justify-between h-full">
+                    <div class="mb-4">
+                        <h3 class="font-bold text-base sm:text-lg dark:text-slate-200">Cumulative Cost Analysis (18 Months)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Proposed Retainer vs. Market Standard</p>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="costChart"></canvas>
+                    </div>
+
+                    <div id="chart-legend" class="mt-4 text-center text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 p-2 rounded">
+                        Analyzing 18-Month Projection based on Market Rate of ~1M LKR/Month vs Proposed Retainer.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="bg-slate-900 dark:bg-slate-950 rounded-2xl p-6 sm:p-8 text-center text-white mb-12 border dark:border-slate-800">
+            <h2 class="text-xl sm:text-2xl font-bold mb-4">Ready to Transform?</h2>
+            <div class="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left bg-slate-800 dark:bg-slate-900 p-4 rounded-lg">
+                <div>
+                    <span class="block text-[10px] text-slate-400">Req 1</span>
+                    <span class="font-semibold text-sm">Org Charts Access</span>
+                </div>
+                <div>
+                    <span class="block text-[10px] text-slate-400">Req 2</span>
+                    <span class="font-semibold text-sm">Restructure Authority</span>
+                </div>
+                <div>
+                    <span class="block text-[10px] text-slate-400">Req 3</span>
+                    <span class="font-semibold text-sm">4 Team Champions</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA & STATE ---
+        const marketMonthly = 1000000; 
+        const option1Monthly = 400000;
+        const option2Monthly = 325000;
+        
+        const state = { currentOption: 1 };
+        let costChart;
+
+        // --- THEME LOGIC ---
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            const icon = document.getElementById('theme-icon');
+            icon.textContent = isDark ? '☀️' : '🌙';
+            updateCostChartTheme(isDark);
+            
+            // Re-render components that might need logic updates based on theme
+            selectOption(state.currentOption); // Updates button styles
+        }
+
+        function updateCostChartTheme(isDark) {
+            if (!costChart) return;
+            
+            const textColor = isDark ? '#94a3b8' : '#64748b';
+            const gridColor = isDark ? '#334155' : '#e2e8f0';
+
+            costChart.options.scales.x.ticks.color = textColor;
+            costChart.options.scales.x.grid.color = gridColor;
+            costChart.options.scales.y.ticks.color = textColor;
+            costChart.options.scales.y.grid.color = gridColor;
+            costChart.options.scales.y.title.color = textColor;
+            
+            costChart.update();
+        }
+
+        // --- ROADMAP DATA ---
+        const roadmapPhases = [
+            { 
+                title: "Foundation", month: "Month 1", color: "slate", borderColor: "border-slate-500", textColor: "text-slate-500", darkColor: "text-slate-400",
+                items: ["Workspace Config", "Group Structure", "Dashboard Setup"] 
+            },
+            { 
+                title: "Activation", month: "Month 2", color: "blue", borderColor: "border-blue-500", textColor: "text-blue-500", darkColor: "text-blue-400",
+                items: ["Lead Training", "Pilot (20 Users)", "Debug Workflow"] 
+            },
+            { 
+                title: "Scale", month: "Month 3", color: "emerald", borderColor: "border-emerald-500", textColor: "text-emerald-500", darkColor: "text-emerald-400",
+                items: ["Full Onboarding", "Gemini AI Integration", "SOP Handover"] 
+            },
+            { 
+                title: "Optimization", month: "Month 4-18", color: "purple", borderColor: "border-purple-500", textColor: "text-purple-500", darkColor: "text-purple-400",
+                items: ["Monitoring", "New Staff Support", "Prompt Engineering"] 
+            }
+        ];
+
+        // --- COMMERCIAL DATA ---
+        const optionDetails = {
+            1: {
+                title: "Standard Cash Retainer",
+                subtitle: "Maximum Cash Flow Visibility",
+                price: "400k",
+                features: ["18 Month Contract", "Minimal Upfront CapEx", "Full Consultant Access", "No Asset Usage"],
+                total: "LKR 7,200,000"
+            },
+            2: {
+                title: "Hybrid Asset Model",
+                subtitle: "Optimized Cash Flow + Mobility",
+                price: "325k",
+                features: ["18 Month Contract", "Reduced Monthly Outflow", "Vehicle Usage (~14M)", "Fuel Included"],
+                total: "LKR 325k/mo + Vehicle Usage"
+            }
+        };
+
+        // --- CHART INITIALIZATION ---
+        function initChart() {
+            const ctx = document.getElementById('costChart').getContext('2d');
+            const labels = Array.from({length: 18}, (_, i) => `M${i + 1}`);
+            const marketData = labels.map((_, i) => marketMonthly * (i + 1));
+            const option1Data = labels.map((_, i) => option1Monthly * (i + 1));
+
+            costChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Market Standard',
+                            data: marketData,
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 2
+                        },
+                        {
+                            label: 'Proposed',
+                            data: option1Data,
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) { label += (context.parsed.y / 1000000).toFixed(1) + 'M'; }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { callback: function(value) { return (value / 1000000) + 'M'; }, font: { size: 10 } },
+                            title: { display: true, text: 'Spend (LKR)' }
+                        },
+                        x: {
+                            ticks: { font: { size: 10 }, maxTicksLimit: 9 }
+                        }
+                    }
+                }
+            });
+
+            // Init theme check
+            if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-icon').textContent = '☀️';
+                setTimeout(() => updateCostChartTheme(true), 100);
+            }
+        }
+
+        // --- INTERACTION FUNCTIONS ---
+        function switchAgenda(session) {
+            const btnMorning = document.getElementById('tab-morning');
+            const btnAfternoon = document.getElementById('tab-afternoon');
+            const contentMorning = document.getElementById('content-morning');
+            const contentAfternoon = document.getElementById('content-afternoon');
+
+            if (session === 'morning') {
+                contentMorning.classList.remove('hidden');
+                contentAfternoon.classList.add('hidden');
+                
+                btnMorning.className = "flex-1 py-4 text-center text-xs sm:text-sm font-bold text-white bg-slate-900 dark:bg-slate-700 border-b-2 border-transparent transition-colors";
+                btnAfternoon.className = "flex-1 py-4 text-center text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 bg-slate-200 dark:bg-slate-950 hover:bg-slate-300 dark:hover:bg-slate-800 transition-colors";
+
+            } else {
+                contentMorning.classList.add('hidden');
+                contentAfternoon.classList.remove('hidden');
+                
+                btnAfternoon.className = "flex-1 py-4 text-center text-xs sm:text-sm font-bold text-white bg-slate-900 dark:bg-slate-700 border-b-2 border-transparent transition-colors";
+                btnMorning.className = "flex-1 py-4 text-center text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 bg-slate-200 dark:bg-slate-950 hover:bg-slate-300 dark:hover:bg-slate-800 transition-colors";
+            }
+        }
+
+        function selectOption(optionId) {
+            state.currentOption = optionId;
+            const data = optionDetails[optionId];
+            const btn1 = document.getElementById('btn-opt1');
+            const btn2 = document.getElementById('btn-opt2');
+            
+            // Logic to handle button active states in both light and dark mode
+            const activeClass = "bg-white dark:bg-slate-600 dark:text-white shadow text-slate-800";
+            const inactiveClass = "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white";
+
+            if (optionId === 1) {
+                btn1.className = `px-6 py-2 rounded-md text-xs sm:text-sm font-bold transition-all mb-1 sm:mb-0 ${activeClass}`;
+                btn2.className = `px-6 py-2 rounded-md text-xs sm:text-sm font-bold transition-all ${inactiveClass}`;
+            } else {
+                btn2.className = `px-6 py-2 rounded-md text-xs sm:text-sm font-bold transition-all ${activeClass}`;
+                btn1.className = `px-6 py-2 rounded-md text-xs sm:text-sm font-bold transition-all mb-1 sm:mb-0 ${inactiveClass}`;
+            }
+
+            document.getElementById('card-title').textContent = data.title;
+            document.getElementById('card-subtitle').textContent = data.subtitle;
+            document.getElementById('card-price').textContent = data.price;
+            document.getElementById('card-total').textContent = data.total;
+
+            const featureList = document.getElementById('card-features');
+            featureList.innerHTML = '';
+            data.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center text-xs sm:text-sm text-slate-700 dark:text-slate-300';
+                li.innerHTML = `<span class="text-emerald-500 mr-2">✓</span> ${feature}`;
+                featureList.appendChild(li);
+            });
+
+            const labels = Array.from({length: 18}, (_, i) => `M${i + 1}`);
+            const newData = labels.map((_, i) => (optionId === 1 ? option1Monthly : option2Monthly) * (i + 1));
+            
+            costChart.data.datasets[1].data = newData;
+            costChart.data.datasets[1].label = optionId === 1 ? 'Proposed (Cash)' : 'Proposed (Hybrid)';
+            costChart.update();
+        }
+
+        function renderRoadmap() {
+            const container = document.getElementById('roadmap-grid');
+            container.innerHTML = '';
+
+            roadmapPhases.forEach((phase, index) => {
+                const card = document.createElement('div');
+                card.className = `bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-xl shadow dark:shadow-none dark:border dark:border-slate-800 border-t-4 ${phase.borderColor} flex flex-col h-full`;
+                
+                let listItems = phase.items.map(item => `<li class="flex items-start"><span class="mr-2 text-slate-400">•</span>${item}</li>`).join('');
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider ${phase.textColor} dark:${phase.darkColor}">${phase.month}</span>
+                        <div class="h-2 w-2 rounded-full bg-${phase.color}-400"></div>
+                    </div>
+                    <h3 class="font-bold text-base sm:text-lg mb-4 dark:text-slate-100">${phase.title}</h3>
+                    <ul class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 flex-grow mb-4" id="list-${index}">
+                        ${listItems}
+                    </ul>
+                    <div class="flex gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <input type="text" id="input-${index}" placeholder="Add Item..." class="w-full text-sm p-2 border dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded focus:outline-none focus:border-blue-500" onkeypress="handleEnter(event, ${index})">
+                        <button onclick="addItem(${index})" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded px-3 py-1 text-lg font-bold transition-colors">+</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function handleEnter(e, index) { if (e.key === 'Enter') addItem(index); }
+
+        function addItem(index) {
+            const input = document.getElementById(`input-${index}`);
+            const val = input.value.trim();
+            if (val) {
+                roadmapPhases[index].items.push(val);
+                renderRoadmap();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            switchAgenda('morning');
+            selectOption(1);
+            renderRoadmap();
+        });
+
+    </script>
+</body>
+</html>
